@@ -4,6 +4,9 @@ import { FC, useEffect, useState } from 'react';
 import './App.css'
 import { nanoid } from 'nanoid';
 import { IContact } from './types/contact';
+import { ContactForm } from './components/ContactForm/ContactForm';
+import { ContactList } from './components/ContactList/ContactList';
+import { Filter } from './components/Filter/Filter';
 
 const App: FC =()=> {
   const [contacts, setContacts] = useState<IContact[]>(
@@ -16,7 +19,7 @@ const App: FC =()=> {
     window.localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts]);
 
-  const handleAddContact = (contact: IContact) => {
+  const handleAddContact = (contact: Pick<IContact, 'name'| 'number'>) => {
     setContacts([{ id: nanoid(), name: contact.name.trim(), number: contact.number}, ...contacts]);
   };
 
@@ -34,12 +37,16 @@ const App: FC =()=> {
 
   return (
     <>
-      <h1 className={s.container}>Phonebook</h1>
-      <ContactForm onSubmit={handleAddContact} addContact={contacts} />
+      <h1
+      //  className={s.container}
+       >Phonebook</h1>
+      <ContactForm onAddContact={handleAddContact} contacts={contacts} />
 
-      <h2 className={s.container}>Contacts</h2>
-      <Filter value={filter} onChange={handlerFilter} />
-      <ContactList contacts={findedContacts} onClick={handleDeleteContact} />
+      <h2
+      //  className={s.container}
+       >Contacts</h2>
+      <Filter value={filter} onChangeFilter={handlerFilter} />
+      <ContactList contacts={findedContacts} onClickDelete={handleDeleteContact} />
     </>
   );
 }
