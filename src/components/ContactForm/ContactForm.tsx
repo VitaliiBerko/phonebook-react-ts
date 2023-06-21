@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { nanoid } from "nanoid";
 import Notiflix from "notiflix";
 import { IContact } from "../../types/contact";
+import { ButtonAdd, Form } from "./ContactForm.styled";
 
 interface IProps {
   onAddContact: (data: Pick<IContact, "name" | "number">) => void;
@@ -50,13 +51,9 @@ export const ContactForm: React.FC<IProps> = ({ onAddContact, contacts }) => {
   };
 
   return (
-    <form
-      onSubmit={handleOnSubmit}
-      //    className={s.form}
-    >
-      <label htmlFor={nameInputId}>Name</label>
+    <Form onSubmit={handleOnSubmit}>
+      <label htmlFor={nameInputId}>Name:</label>
       <input
-        //   className={s.input}
         id={nameInputId}
         type="text"
         name="name"
@@ -67,7 +64,7 @@ export const ContactForm: React.FC<IProps> = ({ onAddContact, contacts }) => {
         onChange={handleChange}
       />
 
-      <label htmlFor={numberInputId}>Number</label>
+      <label htmlFor={numberInputId}>Number:</label>
       <input
         //   className={s.input}
         id={numberInputId}
@@ -80,12 +77,7 @@ export const ContactForm: React.FC<IProps> = ({ onAddContact, contacts }) => {
         onChange={handleChange}
       />
 
-      <button
-        // className={s.btnAddContact}
-        type="submit"
-      >
-        Add contact
-      </button>
-    </form>
+      <ButtonAdd type="submit">Add contact</ButtonAdd>
+    </Form>
   );
 };

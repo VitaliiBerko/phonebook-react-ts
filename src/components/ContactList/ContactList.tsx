@@ -11,10 +11,7 @@ return (
     <ul>
     {contacts.map((contact) => (
       <ContactListItem
-        key={contact.id}
-        // id={id}
-        // name={name}
-        // number={number}
+        key={contact.id}        
         contact ={contact}
         onClickDelete={onClickDelete}
       />
