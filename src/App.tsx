@@ -1,5 +1,4 @@
 import { FC, useEffect, useState } from "react";
-import "./App.css";
 import { nanoid } from "nanoid";
 import { IContact } from "./types/contact";
 import { ContactForm } from "./components/ContactForm/ContactForm";
