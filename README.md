@@ -1,5 +1,5 @@
 # phonebook-react-ts
-Application for   adding, deleting, filtering and saving contacts in local storage.
+Simple phonebook application for adding, deleting, filtering and saving contacts in local storage.
 
 Preparation:
 
