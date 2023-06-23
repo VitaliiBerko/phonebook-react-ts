@@ -8,7 +8,7 @@ interface IProps {
   onAddContact: (data: Pick<IContact, "name" | "number">) => void;
   contacts: IContact[];
 }
-
+ 
 Notiflix.Notify.init({
   position: "center-top",
 });
