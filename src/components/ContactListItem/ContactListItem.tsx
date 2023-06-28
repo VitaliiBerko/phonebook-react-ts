@@ -1,5 +1,6 @@
 import { IContact } from "../../types/contact";
-import { ButtonDel, Item } from "./ContactListItem.styled";
+import { Button } from "../Button/Button";
+import { Item } from "./ContactListItem.styled";
 
 interface IProps {
   contact: IContact;
@@ -13,9 +14,9 @@ export const ContactListItem: React.FC<IProps> = ({
   return (
     <Item>
       {name} : {number}
-      <ButtonDel type="button" onClick={() => onClickDelete(id)}>
+      <Button variant="delBtn" type="button" onClick={() => onClickDelete(id)}>
         Delete
-      </ButtonDel>
+      </Button>
     </Item>
   );
 };
