@@ -1,6 +1,5 @@
 import { FC } from "react";
-import clsx from "clsx";
-import "./Button.modules.css";
+import css from "./Button.module.css";
 
 interface IProps {
   children: string;
@@ -11,7 +10,7 @@ interface IProps {
 
 export const Button: FC<IProps> = ({ children, variant, type }) => {
   return (
-    <button type={type} className={clsx(variant)}>
+    <button type={type} className={css[variant]}>
       {children}
     </button>
   );
