@@ -37,6 +37,8 @@ const App: FC = () => {
 
   const filteredContacts = contacts.filter(contact => contact.name.toLowerCase().includes(filter));
 
+
+
   return (
     <>
       <h1 className="title">Phonebook</h1>
